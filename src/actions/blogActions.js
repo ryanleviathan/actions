@@ -5,7 +5,7 @@ export const createBlog = blog => ({
 });
 
 export const DELETE_BLOG = 'DELETE_BLOG';
-export const deleteBlog = (name) => ({
+export const deleteBlog = (title) => ({
   type: DELETE_BLOG,
-  payload: name
+  payload: title
 });
