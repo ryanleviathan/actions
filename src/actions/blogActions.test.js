@@ -22,8 +22,7 @@ describe('blog actions', () => {
 
   it('deletes a created blog', () => {
     const action = deleteBlog({
-      title: 'I have Friday plans!',
-      body: 'These are my plans. Here I talk about all of them!'
+      title: 'I have Friday plans!'
     });
 
     expect(action).toEqual({
