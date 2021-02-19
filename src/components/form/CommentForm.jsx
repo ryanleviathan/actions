@@ -36,7 +36,9 @@ const CommentForm = ({ postIndex }) => {
           value={commentTitle}
           onChange={({ target }) => setCommentTitle(target.value)}
         />
-        <input
+        <textarea
+          rows="10"
+          cols="30"
           type="text"
           placeholder="Comment Body"
           value={commentBody}
