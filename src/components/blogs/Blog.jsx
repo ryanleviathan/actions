@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useDispatch } from '../../state/BlogProvider';
 import { deleteBlog } from '../../actions/blogActions';
 
-const Blog = ({ title, body }) => {
+const Blog = ({ postIndex, title, body }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -12,21 +13,21 @@ const Blog = ({ title, body }) => {
 
   return (
     <>
-      <d1>
-        <dt>Title</dt>
-        <dd>{title}</dd>
-
-        <dt>Body</dt>
-        <dd>{body}</dd>
-      </d1>
-      <button onClick={handleClick}>Delete</button>
+      <Link to={`/${postIndex}`}>
+        <div>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </div>
+        <button onClick={handleClick}>Delete</button>
+      </Link>
     </>
   );
 };
 
 Blog.propTypes = {
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  body: PropTypes.string.isRequired,
+  postIndex: PropTypes.number.isRequired
 };
 
 export default Blog;

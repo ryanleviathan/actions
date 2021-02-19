@@ -22,7 +22,9 @@ const BlogForm = () => {
         value={title}
         onChange={({ target }) => setTitle(target.value)}
       />
-      <input
+      <textarea
+        rows="10"
+        cols="30"
         type="text"
         placeholder="Body"
         value={body}

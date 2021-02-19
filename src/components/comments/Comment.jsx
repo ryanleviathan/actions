@@ -12,13 +12,10 @@ const Comment = ({ commentTitle, commentBody }) => {
 
   return (
     <>
-      <d1>
-        <dt>Title</dt>
-        <dd>{commentTitle}</dd>
-
-        <dt>Body</dt>
-        <dd>{commentBody}</dd>
-      </d1>
+      <div>
+        <h4>{commentTitle}</h4>
+        <p>{commentBody}</p>
+      </div>
       <button onClick={handleClick}>Delete</button>
     </>
   );
