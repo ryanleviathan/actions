@@ -1,22 +1,11 @@
-import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+export const createComment = comment => ({
+  type: CREATE_COMMENT,
+  payload: comment
+});
 
-export const initialState = {
-  comments: []
-};
-
-export default function reducer(state, action) {
-  switch(action.type) {
-    case CREATE_COMMENT:
-      return {
-        ...state,
-        comments: [...state.comments, action.payload]
-      };
-    case DELETE_COMMENT:
-      return {
-        ...state,
-        comments: state.comments.filter(blog => blog.title !== action.payload)
-      };
-    default:
-      return state;
-  }
-}
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const deleteComment = (comment) => ({
+  type: DELETE_COMMENT,
+  payload: comment
+});
