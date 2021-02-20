@@ -10,16 +10,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         [action.payload.postIndex]: [
-          (state[action.payload.postIndex] || []),
+          ...(state[action.payload.postIndex] || []),
           action.payload.comment
         ]
       };
     case DELETE_COMMENT:
       return {
         ...state,
-        [action.payload.postIndex]: [
-          (state[action.payload.postIndex] && action.payload.commentIndex)
-        ]
+        [action.payload.postIndex]: 
+          state[action.payload.postIndex]
+            .filter(
+              comment => comment.commentBody !== action.payload.commentBody
+            )
       };
     default:
       return state;

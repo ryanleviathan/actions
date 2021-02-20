@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from '../../state/CommentProvider';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBlogs } from '../../selectors/blogSelector';
 import { createComment } from '../../actions/commentActions';
 
@@ -16,19 +16,20 @@ const CommentForm = ({ postIndex }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(createComment({ postIndex, commentTitle, commentBody }));
+    dispatch(createComment(postIndex, { commentTitle, commentBody }));
+    setCommentTitle('');
     setCommentBody('');
   };
 
   return (
     <>
-      <d1>
+      <div>
         <dt>Title</dt>
         <dd>{thisBlog.title}</dd>
 
         <dt>Body</dt>
         <dd>{thisBlog.body}</dd>
-      </d1>
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
