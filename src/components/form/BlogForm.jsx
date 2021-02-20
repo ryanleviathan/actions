@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createBlog } from '../../actions/blogActions';
-import { useDispatch } from '../../state/BlogProvider';
 
 const BlogForm = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const BlogForm = () => {
     e.preventDefault();
 
     dispatch(createBlog({ title, body }));
+    setTitle('');
+    setBody('');
   };
 
   return (
@@ -22,7 +24,9 @@ const BlogForm = () => {
         value={title}
         onChange={({ target }) => setTitle(target.value)}
       />
-      <input
+      <textarea
+        rows="10"
+        cols="30"
         type="text"
         placeholder="Body"
         value={body}
